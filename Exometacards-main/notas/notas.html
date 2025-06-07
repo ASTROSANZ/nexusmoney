@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de NFs</title>
+    <style>
+        /* Reset e Estilos Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #ffc800;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #ffc800;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 0 8px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        nav ul li a:hover {
+            color: #000000;
+        }
+        
+        /* Seções */
+        section {
+            padding: 30px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            color: #333333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 22px;
+        }
+        
+        h3 {
+            font-size: 18px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: center;
+            color: #555555;
+            font-size: 15px;
+        }
+        
+        /* Banner */
+        .banner {
+            text-align: center;
+            padding: 40px 15px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #333333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: #555555;
+        }
+        
+        /* Produtos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .produto {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .produto:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .produto img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        
+        .produto button {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .produto button:hover {
+            background-color: #555555;
+        }
+
+        /* Seção de Vídeo */
+        .video-container {
+            margin: 30px 0;
+            text-align: center;
+            padding: 0 15px;
+        }
+        
+        .video-container video {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: auto;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        /* Media Queries para ajustes específicos */
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 10px;
+            }
+            
+            .produto {
+                padding: 12px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 5px;
+            }
+            
+            nav ul li a {
+                font-size: 13px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">Lojinha de NF</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Informações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Banner -->
+    <section id="home" class="banner">
+        <h1>Encontre o kit ideal para você</h1>
+        <p>NFs com a maior qualidade do mercado.</p>
+        <a href="#produtos" class="btn">Ver Produtos</a>
+    </section>
+    
+    <!-- Produtos -->
+    <section id="produtos" class="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="grid">
+            <!-- Produto 1 -->
+            <div class="produto">
+                <img src="imagens/produto1.jpg" alt="Pack de 350R$">
+                <h3>Pack de 350R$</h3>
+                <p>3 notas de 50R$ + 2 notas de 100R$</p>
+                <p>Valor: R$30,00</p>
+                <a href="dados.html?produto=Pack de 350R$&valor=30,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto">
+                <img src="imagens/produto2.jpg" alt="Pack de 900R$">
+                <h3>Pack de 900R$</h3>
+                <p>Todas em nota de 50R$</p>
+                <p>Valor: R$100,00</p>
+                <a href="dados.html?produto=Pack de 900R$&valor=100,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto">
+                <img src="imagens/produto3.jpg" alt="Pack de 1200R$">
+                <h3>Pack de 1200R$</h3>
+                <p>Todas notas de 100R$</p>
+                <p>Valor: R$105,00</p>
+                <a href="dados.html?produto=Pack de 1200R$&valor=105,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="produto">
+                <img src="imagens/produto4.jpg" alt="Pack de 500R$">
+                <h3>Pack 500R$</h3>
+                <p>6 notas de 50R$ + 2 notas de 100R$</p>
+                <p>Valor: R$50,00</p>
+                <a href="dados.html?produto=Pack de 500R$&valor=50,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="produto">
+                <img src="imagens/produto5.jpg" alt="Pack de 750R$">
+                <h3>Pack de 750R$</h3>
+                <p>5 notas de 100R$ e 5 notas de 50R$</p>
+                <p>Valor: R$80,00</p>
+                <a href="dados.html?produto=Pack de 750R$&valor=80,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="produto">
+                <img src="imagens/produto6.jpg" alt="Pack de 1000R$">
+                <h3>Pack de 1000R$</h3>
+                <p>7 notas de 100R$ + 6 notas de 50R$</p>
+                <p>Valor: R$150,00</p>
+                <a href="dados.html?produto=Pack de 1000R$&valor=150,00">
+                    <button>Comprar</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sobre -->
+    <section id="sobre" class="sobre">
+        <h2>Como Funciona</h2>
+        <p>Produtos enviados de forma segura, dentro de revistas lacradas com plástico preto e total garantia aos nossos clientes.</p>
+        <p>Notas de qualidade, com marca d'água, passando nos testes da caneta e no teste da luz negra. NOTAS JA ENVELHECIDAS E PRONTAS PARA USO.</p>
+        <p>Perfeitas para usar em qualquer lugar, seja em festas baladas ou até mercados e lojas.</p>
+    </section>
+
+    <!-- Vídeo Demonstrativo -->
+    <section class="video-container">
+        <h2>Demonstração dos Nossos Produtos</h2>
+        <video width="100%" controls>
+            <source src="notas/imagens/demonstracao.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <p>Confira a qualidade das nossas notas fiscais</p>
+    </section>
+    
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <h2>Contato</h2>
+        <p>Email: suporte@exonotas.com</p>
+        <p>Telefone: (45) 9956-7890</p>
+    </section>
+
+</body>
+</html>

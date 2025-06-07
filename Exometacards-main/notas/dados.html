@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações para Entrega</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffc800;
+        }
+        
+        .produto-info {
+            background: #fffae6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            border-left: 4px solid #ffc800;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #ffc800;
+            outline: none;
+        }
+        
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #ffc800;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #e6b400;
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        input.error-border {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Informações para Entrega</h1>
+        
+        <div class="produto-info">
+            <h3 id="produto-nome">Produto: <span id="produto-nome-value"></span></h3>
+            <p id="produto-valor">Valor: <span id="produto-valor-value"></span></p>
+        </div>
+        
+        <form id="dados-form">
+            <div class="form-group">
+                <label for="nome">NOME COMPLETO:</label>
+                <input type="text" id="nome" name="nome" required>
+                <div class="error" id="nome-error">Por favor, insira seu nome completo</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">NÚMERO DE TELEFONE:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+                <div class="error" id="telefone-error">Por favor, insira um telefone válido</div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label for="estado">ESTADO:</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                    <div class="error" id="estado-error">Por favor, selecione seu estado</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cidade">CIDADE:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    <div class="error" id="cidade-error">Por favor, insira sua cidade</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required>
+                    <div class="error" id="cep-error">Por favor, insira um CEP válido</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="numero">NÚMERO:</label>
+                    <input type="text" id="numero" name="numero" required>
+                    <div class="error" id="numero-error">Por favor, insira o número</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="rua">RUA:</label>
+                <input type="text" id="rua" name="rua" required>
+                <div class="error" id="rua-error">Por favor, insira sua rua</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="complemento">COMPLEMENTO (opcional):</label>
+                <input type="text" id="complemento" name="complemento">
+            </div>
+            
+            <button type="submit" class="btn" id="pagamento-btn" disabled>IR PARA PAGAMENTO</button>
+        </form>
+    </div>
+
+    <script>
+        // Pega os parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const produto = urlParams.get('produto');
+        const valor = urlParams.get('valor');
+        
+        // Exibe as informações do produto
+        document.getElementById('produto-nome-value').textContent = produto || 'Produto não especificado';
+        document.getElementById('produto-valor-value').textContent = valor ? `R$${valor}` : 'Valor não especificado';
+        
+        // Máscaras de formatação
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.substring(0, 11);
+            
+            if (value.length > 0) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                if (value.length > 10) {
+                    value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+                } else {
+                    value = value.replace(/(\d)(\d{3})$/, '$1-$2');
+                }
+            }
+            
+            e.target.value = value;
+            validateField(e.target);
+        });
+        
+        document.getElementById('cep').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 8) value = value.substring(0, 8);
+            
+            if (value.length > 5) {
+                value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+            }
+            
+            e.target.value = value;
+            validateField(e.target);
+        });
+        
+        // Validação dos campos
+        const form = document.getElementById('dados-form');
+        const inputs = form.querySelectorAll('input[required], select[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateField(input);
+                checkForm();
+            });
+            
+            input.addEventListener('change', () => {
+                validateField(input);
+                checkForm();
+            });
+        });
+        
+        function validateField(field) {
+            const errorElement = document.getElementById(`${field.id}-error`);
+            
+            if (!field.value.trim()) {
+                field.classList.add('error-border');
+                errorElement.style.display = 'block';
+                return false;
+            }
+            
+            // Validações específicas
+            if (field.id === 'telefone' && field.value.replace(/\D/g, '').length < 10) {
+                field.classList.add('error-border');
+                errorElement.style.display = 'block';
+                return false;
+            }
+            
+            if (field.id === 'cep' && field.value.replace(/\D/g, '').length < 8) {
+                field.classList.add('error-border');
+                errorElement.style.display = 'block';
+                return false;
+            }
+            
+            field.classList.remove('error-border');
+            errorElement.style.display = 'none';
+            return true;
+        }
+        
+        function checkForm() {
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+            
+            document.getElementById('pagamento-btn').disabled = !isValid;
+            return isValid;
+        }
+        
+        // Envio do formulário
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (checkForm()) {
+                // Salva os dados no localStorage (opcional)
+                const formData = {
+                    nome: document.getElementById('nome').value,
+                    telefone: document.getElementById('telefone').value,
+                    estado: document.getElementById('estado').value,
+                    cidade: document.getElementById('cidade').value,
+                    cep: document.getElementById('cep').value,
+                    rua: document.getElementById('rua').value,
+                    numero: document.getElementById('numero').value,
+                    complemento: document.getElementById('complemento').value,
+                    produto: produto,
+                    valor: valor
+                };
+                
+                localStorage.setItem('dadosEntrega', JSON.stringify(formData));
+                
+                // Redireciona para pagamento.html com o valor
+                window.location.href = `pagamento.html?produto=${encodeURIComponent(produto)}&valor=${encodeURIComponent(valor)}`;
+            }
+        });
+        
+        // Validação inicial
+        checkForm();
+    </script>
+</body>
+</html>
