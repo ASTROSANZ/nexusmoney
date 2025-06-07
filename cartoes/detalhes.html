@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Cartão</title>
+    <link rel="stylesheet" href="detalhes.css"> <!-- Referência ao CSS externo -->
+</head>
+<body>
+    <header>
+        <h1>Detalhes do Cartão</h1>
+    </header>
+
+    <main>
+        <div class="card-details">
+            <div class="card-image">
+                <img id="card-img" src="" alt="Imagem do Cartão">
+            </div>
+            <div class="card-info">
+                <h2 id="card-name">Nome do Cartão</h2>
+                <p><strong>Limite:</strong> <span id="card-limit"></span></p>
+                <p><strong>Valor:</strong> R$ <span id="card-value"></span></p>
+                <button id="comprarBtn">Comprar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Obtém os parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        const cardName = params.get("name");
+        const cardLimit = params.get("limit");
+        const cardValue = params.get("value");
+        const cardImg = params.get("img");
+
+        // Define os valores dinâmicos na página
+        document.getElementById("card-name").textContent = cardName || "Cartão não especificado";
+        document.getElementById("card-limit").textContent = cardLimit ? `R$ ${cardLimit}` : "Indisponível";
+        document.getElementById("card-value").textContent = cardValue || "0.00";
+        document.getElementById("card-img").src = cardImg || "imagens/default.png";
+
+        // Botão para redirecionar para a página de confirmação
+        document.getElementById("comprarBtn").addEventListener("click", function () {
+            window.location.href = `confirmation.html?value=${cardValue}`; // Mudança para confirmation.html
+        });
+    </script>
+</body>
+</html>
